@@ -39,8 +39,10 @@
           :key="index"
           class="flex items-center"
         >
-          <input type="checkbox" class="mr-2 h-4 w-4" />
-          <span>{{ ingredient }}</span>
+          <input type="checkbox" class="mr-2 h-4 w-4 accent-green-500" :value =ingredient v-model =selectedIngredient>
+          <span :class="isIngredientSelected(ingredient) ? 'line-through text-yellow-500' : ''">
+          {{ ingredient }}
+        </span>
         </li>
       </ul>
     </div>
@@ -67,6 +69,11 @@ const { id } = useRoute().params;
 const uri_id = "https://dummyjson.com/recipes/" + id;
 const { data: recipe } = await useFetch(uri_id);
 
+const selectedIngredient = ref([]);
+
+function isIngredientSelected(ingredient) {
+  return selectedIngredient.value.includes(ingredient);
+}
 useSeoMeta({
   title: recipe.value.name,
   description: 'Recipes for ' + recipe.value.name,

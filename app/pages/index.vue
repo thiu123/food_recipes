@@ -1,22 +1,27 @@
 <template>
   <div>
-    <section class="bg-[#f1f1f1]">
-      <div class="flex mx-20">
+    <section class="bg-[#f1f1f1] h-full">
+      <div class="flex flex-wrap lg:flex-nowrap mx-20">
         <div class="flex-col">
-          <h1 class="text-6xl  font-extrabold mb-6 text-balance">
+          <h1 class="lg:text-6xl text-3xl font-extrabold mb-6 text-balance">
             Good food is the foundation of genuine happiness.
           </h1>
-          <p class="text-2xl  mb-8 text-balance">
+          <p class="lg:text-2xl text-xl mb-8 text-balance">
             Discover the secret to happiness, it’s in the recipe.
           </p>
           <button
-            class="bg-dodgeroll-gold cursor-pointer rounded-md p-1 text-lg"
+            class="bg-dodgeroll-gold cursor-pointer rounded-md p-2 text-lg lg:text-2xl mb-4"
           >
             Browse Recipes
           </button>
         </div>
-        <div>
-          <NuxtImg src="/food_homepages.jpg" alt="Introduce recipes image"/>
+        <div class="w-full lg:w-1/2">
+          <NuxtImg
+            src="/food_homepages.jpg"
+            alt="Introduce recipes image"
+            sizes="xs:100vw sm:100vw md:100vw lg:100vw"
+            class="w-full max-h-[500px] object-cover"
+          />
         </div>
       </div>
     </section>
@@ -30,7 +35,7 @@
           kitchen and happiness to your table.
         </p>
       </div>
-      <div class="grid grid-cols-3 gap-7 mx-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mx-20">
         <div
           v-for="recipe in products.recipes"
           :key="recipe.id"
@@ -77,6 +82,6 @@
 const { data: products } = await useFetch("https://dummyjson.com/recipes");
 // console.log(products);
 useSeoMeta({
-  title: 'Food Recipes',
-})
+  title: "Food Recipes",
+});
 </script>

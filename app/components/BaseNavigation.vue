@@ -8,14 +8,14 @@
             alt="Food Recipes Logo"
             class="w-6 h-6"
           />
-          <span class="text-lg">Food Recipes</span>
+          <span class="lg:text-2xl text-xl mr-10">Food Recipes</span>
         </nuxt-link>
         <ul class="flex gap-6">
           <li>
-            <nuxt-link to="/" class="text-lg">Home</nuxt-link>
+            <nuxt-link to="/" class="lg:text-2xl text-xl">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/about" class="text-lg">About</nuxt-link>
+            <nuxt-link to="/about" class="lg:text-2xl text-xl">About</nuxt-link>
           </li>
         </ul>
       </nav>
